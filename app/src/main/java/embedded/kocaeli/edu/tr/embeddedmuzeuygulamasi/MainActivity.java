@@ -20,6 +20,8 @@ public class MainActivity extends FragmentActivity {
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
+
+        //deneeme
     }
 
     @Override
