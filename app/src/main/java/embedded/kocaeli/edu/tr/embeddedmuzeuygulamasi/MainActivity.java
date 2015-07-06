@@ -1,5 +1,6 @@
 package embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.ImageFragment;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.MainFragment;
@@ -55,6 +58,9 @@ public class MainActivity extends FragmentActivity {
 
             case R.id.button1:
                 transaction.replace(R.id.container,new MainFragment());
+                ImageButton b = (ImageButton) findViewById(R.id.button1);
+                LinearLayout l = (LinearLayout) b.getParent();
+                l.setBackgroundColor(Color.BLUE);
                 break;
             case R.id.button2:
                 transaction.replace(R.id.container,new ImageFragment());
