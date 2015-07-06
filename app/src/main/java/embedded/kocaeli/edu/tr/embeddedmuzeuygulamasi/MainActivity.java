@@ -6,6 +6,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.ImageFragment;
 
 
 public class MainActivity extends FragmentActivity {
@@ -46,5 +49,14 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void click(View v){
+        switch (v.getId()){
+            case R.id.button2:
+                transaction.replace(R.id.container,new ImageFragment());
+                break;
+        }
+        transaction.commit();
     }
 }
