@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.ImageFragment;
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.MainFragment;
 
 
 public class MainActivity extends FragmentActivity {
@@ -22,9 +23,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         manager = getSupportFragmentManager();
-        transaction = manager.beginTransaction();
-
-        //deneeme
     }
 
     @Override
@@ -52,7 +50,12 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void click(View v){
+        transaction = manager.beginTransaction();
         switch (v.getId()){
+
+            case R.id.button1:
+                transaction.replace(R.id.container,new MainFragment());
+                break;
             case R.id.button2:
                 transaction.replace(R.id.container,new ImageFragment());
                 break;
