@@ -26,6 +26,12 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
+        transaction.replace(R.id.container,new MainFragment());
+        ImageButton b = (ImageButton) findViewById(R.id.button1);
+        LinearLayout l = (LinearLayout) b.getParent();
+        l.setBackgroundColor(Color.BLUE);
+        transaction.commit();
     }
 
     @Override
@@ -60,7 +66,7 @@ public class MainActivity extends FragmentActivity {
                 transaction.replace(R.id.container,new MainFragment());
                 ImageButton b = (ImageButton) findViewById(R.id.button1);
                 LinearLayout l = (LinearLayout) b.getParent();
-                l.setBackgroundColor(Color.BLUE);
+                l.setBackgroundColor(Color.parseColor("#2d2d2d"));
                 break;
             case R.id.button2:
                 transaction.replace(R.id.container,new ImageFragment());

@@ -2,7 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    android:orientation="vertical"
+    android:background="@android:color/white"
     >
 
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="0"
+       android:gravity="center"
+       >
+
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/imageView"
+           android:padding="8dp"
+           android:src="@mipmap/muze_main_page" />
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:padding="16dp"
+                android:id="@+id/web_view_main_layout"></WebView>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>
