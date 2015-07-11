@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
@@ -29,8 +30,7 @@ public class MainActivity extends FragmentActivity {
         transaction = manager.beginTransaction();
         transaction.replace(R.id.container,new MainFragment());
         ImageButton b = (ImageButton) findViewById(R.id.button1);
-        LinearLayout l = (LinearLayout) b.getParent();
-        l.setBackgroundColor(Color.BLUE);
+        ((LinearLayout) b.getParent()).setBackgroundColor(Color.BLACK);
         transaction.commit();
     }
 
@@ -60,18 +60,37 @@ public class MainActivity extends FragmentActivity {
 
     public void click(View v){
         transaction = manager.beginTransaction();
+        LinearLayout l = (LinearLayout) findViewById(R.id.bootom_layout);
+        for (int i=0;i<l.getChildCount();i++){
+            View view = l.getChildAt(i);
+            view.setBackgroundColor(Color.parseColor("#282828"));
+        }
+
+        ImageButton imageButton= null;
         switch (v.getId()){
 
             case R.id.button1:
                 transaction.replace(R.id.container,new MainFragment());
-                ImageButton b = (ImageButton) findViewById(R.id.button1);
-                LinearLayout l = (LinearLayout) b.getParent();
-                l.setBackgroundColor(Color.parseColor("#2d2d2d"));
+                 imageButton= (ImageButton) findViewById(R.id.button1);
+                ((LinearLayout)imageButton.getParent()).setBackgroundColor(Color.BLACK);
+
                 break;
             case R.id.button2:
                 transaction.replace(R.id.container,new ImageFragment());
+                imageButton = (ImageButton) findViewById(R.id.button2);
+                ((LinearLayout)imageButton.getParent()).setBackgroundColor(Color.BLACK);
+                break;
+
+            case R.id.button3:
+                transaction.replace(R.id.container,new ImageFragment());
+                imageButton = (ImageButton) findViewById(R.id.button3);
+                ((LinearLayout)imageButton.getParent()).setBackgroundColor(Color.BLACK);
                 break;
         }
+
+
+
+
         transaction.commit();
     }
 }

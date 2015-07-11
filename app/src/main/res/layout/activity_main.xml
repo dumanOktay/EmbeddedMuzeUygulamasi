@@ -21,8 +21,9 @@
 
 
     <LinearLayout
+        android:id="@+id/bootom_layout"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:background="#282828"
         android:orientation="horizontal">
 
@@ -54,6 +55,7 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
                 android:onClick="click"
                 android:src="@mipmap/at" />
 
@@ -67,8 +69,10 @@
             android:gravity="center">
 
             <ImageButton
+                android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="click"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/at" />
 
