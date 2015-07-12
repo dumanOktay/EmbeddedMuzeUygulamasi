@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.ImageFragment;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.MainFragment;
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.fragments.YtvideoList;
 
 
 public class MainActivity extends FragmentActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends FragmentActivity {
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
-        transaction.replace(R.id.container,new MainFragment());
+        transaction.replace(R.id.container,new YtvideoList());
         ImageButton b = (ImageButton) findViewById(R.id.button1);
         ((LinearLayout) b.getParent()).setBackgroundColor(Color.BLACK);
         transaction.commit();
@@ -58,6 +59,12 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Constant.setActivity(this);
+    }
+
     public void click(View v){
         transaction = manager.beginTransaction();
         LinearLayout l = (LinearLayout) findViewById(R.id.bootom_layout);
@@ -82,7 +89,7 @@ public class MainActivity extends FragmentActivity {
                 break;
 
             case R.id.button3:
-                transaction.replace(R.id.container,new ImageFragment());
+                transaction.replace(R.id.container,new YtvideoList());
                 imageButton = (ImageButton) findViewById(R.id.button3);
                 ((LinearLayout)imageButton.getParent()).setBackgroundColor(Color.BLACK);
                 break;
