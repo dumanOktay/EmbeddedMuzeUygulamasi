@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="genel">GENEL</string>
+    <string name="his">GEÇMİŞ </string>
+    <string name="simdiki">GEZİLEN</string>
+    <string name="title_activity_start_activty">StartActivty</string>
 </resources>
