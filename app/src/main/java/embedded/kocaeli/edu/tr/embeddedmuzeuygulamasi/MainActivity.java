@@ -70,7 +70,7 @@ public class MainActivity extends FragmentActivity {
         LinearLayout l = (LinearLayout) findViewById(R.id.bootom_layout);
         for (int i=0;i<l.getChildCount();i++){
             View view = l.getChildAt(i);
-            view.setBackgroundColor(Color.parseColor("#282828"));
+            view.setBackgroundColor(Color.TRANSPARENT);
         }
 
         ImageButton imageButton= null;

@@ -1,8 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="@android:color/background_dark"
     android:padding="3dp"
     android:orientation="vertical"
 
@@ -11,8 +11,7 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:padding="3dp"
         android:background="@android:color/background_dark">
 
@@ -23,13 +22,16 @@
     <LinearLayout
         android:id="@+id/bootom_layout"
         android:layout_width="match_parent"
+        android:layout_gravity="bottom"
         android:layout_height="wrap_content"
-        android:background="#282828"
+        android:background="#99000000"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="5dp"
+            android:background="#99000000"
             android:layout_weight="1"
             android:gravity="center">
 
@@ -39,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="click"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/catedral" />
+                android:src="@drawable/home" />
 
 
         </LinearLayout>
@@ -48,7 +50,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-
+            android:padding="5dp"
+            android:background="#99000000"
             android:gravity="center">
 
             <ImageButton
@@ -57,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:onClick="click"
-                android:src="@mipmap/at" />
+                android:src="@drawable/foto" />
 
         </LinearLayout>
 
@@ -66,6 +69,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:padding="5dp"
+            android:background="@android:color/transparent"
             android:gravity="center">
 
             <ImageButton
@@ -74,10 +79,10 @@
                 android:layout_height="wrap_content"
                 android:onClick="click"
                 android:background="@android:color/transparent"
-                android:src="@mipmap/at" />
+                android:src="@drawable/yu" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
