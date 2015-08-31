@@ -16,7 +16,16 @@ public class StartActivty extends ActionBarActivity {
     }
 
     public void clickStart(View v){
-        startActivity(new Intent(this,MainActivity.class));
+        switch (v.getId())
+        {
+            case R.id.txt_genel:
+                break;
+            case R.id.txt_gecmis:
+                break;
+            case R.id.txt_gezilen:
+                startActivity(new Intent(this,DecoderActivity.class));
+                break;
+        }
     }
 
     @Override

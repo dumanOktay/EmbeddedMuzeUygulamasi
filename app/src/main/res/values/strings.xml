@@ -7,4 +7,5 @@
     <string name="his">GEÇMİŞ </string>
     <string name="simdiki">GEZİLEN</string>
     <string name="title_activity_start_activty">StartActivty</string>
+    <string name="title_activity_decoder">DecoderActivity</string>
 </resources>
