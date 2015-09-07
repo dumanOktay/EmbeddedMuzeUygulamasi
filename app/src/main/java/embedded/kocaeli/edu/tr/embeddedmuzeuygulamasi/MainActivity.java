@@ -29,7 +29,7 @@ public class MainActivity extends FragmentActivity {
 
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
-        transaction.replace(R.id.container,new YtvideoList());
+        transaction.replace(R.id.container,new MainFragment());
         ImageButton b = (ImageButton) findViewById(R.id.button1);
         ((LinearLayout) b.getParent()).setBackgroundColor(Color.BLACK);
         transaction.commit();

@@ -19,6 +19,7 @@ public class StartActivty extends ActionBarActivity {
         switch (v.getId())
         {
             case R.id.txt_genel:
+                startActivity(new Intent(this,MainActivity.class));
                 break;
             case R.id.txt_gecmis:
                 break;
