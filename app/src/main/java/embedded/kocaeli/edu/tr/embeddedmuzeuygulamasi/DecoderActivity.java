@@ -30,6 +30,7 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     private QRCodeReaderView mydecoderview;
     private ImageView line_image;
     private String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +67,6 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     }
 
 
-
     // Called when your device have no camera
     @Override
     public void cameraNotFound() {
@@ -91,16 +91,16 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
         super.onPause();
         mydecoderview.getCameraManager().stopPreview();
     }
-    
-    
-    class getData extends AsyncTask<Void,Integer,JSONObject>{
+
+
+    class getData extends AsyncTask<Void, Integer, JSONObject> {
         @Override
         protected JSONObject doInBackground(Void... voids) {
-            String s = NetWork.getDataFrOmUrL(Constant.getURL()+"presentation_info?presentation_id="+id);
+            String s = NetWork.getDataFrOmUrL(Constant.getURL() + "presentation_info?presentation_id=" + id);
 
             try {
                 JSONObject o = new JSONObject(s);
-                return  o;
+                return o;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
@@ -112,12 +112,12 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
         protected void onPostExecute(JSONObject jsonObject) {
             super.onPostExecute(jsonObject);
 
-            if (jsonObject ==null){
-                Toast.makeText(DecoderActivity.this,"Hatalı Qr Code",Toast.LENGTH_LONG).show();
-            }else{
+            if (jsonObject == null) {
+                Toast.makeText(DecoderActivity.this, "Hatalı Qr Code", Toast.LENGTH_LONG).show();
+            } else {
                 try {
                     JSONArray pictures = jsonObject.getJSONArray("pictures");
-                    Toast.makeText(DecoderActivity.this,"  "+pictures.get(0),Toast.LENGTH_LONG).show();
+                    Toast.makeText(DecoderActivity.this, "  " + pictures.get(0), Toast.LENGTH_LONG).show();
                     setContentView(R.layout.presentation_info);
                     LinearLayout mainLayout = (LinearLayout) findViewById(R.id.ust_layout);
 
@@ -126,7 +126,7 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
 
                     LinearLayout layout = new LinearLayout(DecoderActivity.this);
 
-                    LinearLayout.LayoutParams leftMarginParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+                    LinearLayout.LayoutParams leftMarginParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     leftMarginParams.weight = 1;
 
 
@@ -149,11 +149,11 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
                     mainLayout.addView(v);
 
                     JSONArray array = jsonObject.getJSONArray("urls");
-                    LinkButton button1= new LinkButton(DecoderActivity.this,array.getJSONObject(0));
+                    LinkButton button1 = new LinkButton(DecoderActivity.this, array.getJSONObject(0));
                     mainLayout.addView(button1);
-                    LinkButton button2= new LinkButton(DecoderActivity.this,array.getJSONObject(1));
+                    LinkButton button2 = new LinkButton(DecoderActivity.this, array.getJSONObject(1));
                     mainLayout.addView(button2);
-                    LinkButton button3= new LinkButton(DecoderActivity.this,array.getJSONObject(2));
+                    LinkButton button3 = new LinkButton(DecoderActivity.this, array.getJSONObject(2));
                     mainLayout.addView(button3);
 
                 } catch (JSONException e) {
