@@ -177,9 +177,7 @@ public class NetWork {
 
 			System.out.println(response.toString());
 		} catch (ClientProtocolException e) {
-			// TODO Auto-generated catch block
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 		}
 	}
 
@@ -218,7 +216,6 @@ public class NetWork {
 			bitmap = BitmapFactory.decodeStream(in);
 			in.close();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		return bitmap;

@@ -18,7 +18,7 @@ public class Constant {
 	private static Activity activity;
 	private static String ANDROID_ID;
 	private static Kvideo currentKvideo;
-	
+	private static final String URL = "http://lab.tanerguven.org/museum-project/visitor/";
 	public Constant(Context context) {
 		// TODO Auto-generated constructor stub
 		
@@ -31,7 +31,12 @@ public class Constant {
 		
 		ANDROID_ID = Secure.getString(getActivity().getContentResolver(), Secure.ANDROID_ID);
 	}
-	
+
+
+	public static String getURL() {
+		return URL;
+	}
+
 	public static String getANDROID_ID() {
 		return ANDROID_ID;
 	}
