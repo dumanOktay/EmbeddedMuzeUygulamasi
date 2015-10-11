@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="genel">GENEL</string>
     <string name="his">GEÇMİŞ </string>
-    <string name="simdiki">GEZİLEN</string>
+    <string name="simdiki">ŞİMDİKİ</string>
     <string name="title_activity_start_activty">StartActivty</string>
     <string name="title_activity_decoder">DecoderActivity</string>
 </resources>
