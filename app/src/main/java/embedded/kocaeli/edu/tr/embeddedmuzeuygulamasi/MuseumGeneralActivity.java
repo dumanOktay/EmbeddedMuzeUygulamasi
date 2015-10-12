@@ -33,7 +33,8 @@ public class MuseumGeneralActivity extends Activity {
         String url = "http://img01.imgfotokritik.com/fk_new/big/2/7/3/273626/1459405-osman-hamdi-bey8217in-yalisi.jpg";
         WebView webView = new WebView(this);
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        String imgSrcHtml = "<html><body style=\"margin: 0; padding: 0\"><img src='" + url + "'   width=\"100%\" /></html>";
+        String imgSrcHtml = "<html><body style=\"margin: 0; padding: 0\">" +
+                "<img src='" + url + "'   width=\"100%\" /></html>";
         webView.loadDataWithBaseURL("", imgSrcHtml, "text/html", "utf-8", "");
         layout2.addView(webView);
 
@@ -45,7 +46,11 @@ public class MuseumGeneralActivity extends Activity {
                 "resimhane, kayıkhane ve müştemilat şeklinde inşa edilmiştir.";
         WebView webView2 = new WebView(this);
         webView2.getSettings().setDefaultTextEncodingName("utf-8");
-        imgSrcHtml = "<html> '" + url2 + "'  </html>";
+        imgSrcHtml = "<html> " +
+                "<p><font face=\"Courier New\" color=\"#282828\"> '"
+                + url2 + "'  " +
+                " </font></p>" +
+                "</html>";
         webView2.loadDataWithBaseURL("", imgSrcHtml, "text/html", "utf-8", "");
         layout3.addView(webView2);
 
