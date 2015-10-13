@@ -1,0 +1,30 @@
+{
+  "list": [
+    {
+      "sehirIsim": "Kocaeli'ndeki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kocaeli Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": "",
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    }
+  ]
+}
