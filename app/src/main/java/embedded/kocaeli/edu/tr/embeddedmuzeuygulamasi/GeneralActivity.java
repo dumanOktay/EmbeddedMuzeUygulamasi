@@ -24,7 +24,8 @@ import java.util.List;
 public class GeneralActivity extends Activity {
 
     private static final String KEY_LIST = "list";
-    LinearLayout lay;
+    private LinearLayout lay;
+    private static CityData selectedCityData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +51,12 @@ public class GeneralActivity extends Activity {
     }
     public void parsJson(JSONObject object) throws JSONException{
 
-        List<CityData> cityDataList = new ArrayList<>();
+        final List<CityData> cityDataList = new ArrayList<>();
         JSONArray array = object.getJSONArray(KEY_LIST);
 
         for (int i=0;i<array.length();i++){
             JSONObject o = array.getJSONObject(i);
-            cityDataList.add(new CityData(o.getString("sehirIsim")));
-            /*JSONArray museJSArray = o.getJSONArray("muzeList");
-            for (int j=0;j<museJSArray.length();j++){
-                JSONObject o2 = museJSArray.getJSONObject(j);
-                cityDataList.add(new CityData(o2.getString("muzeISim")));
-            }/*/
+            cityDataList.add(new CityData(o));
 
         }
 
@@ -74,10 +70,34 @@ public class GeneralActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedCityData = cityDataList.get(i);
+                getMuseumListview();
 
             }
         });
         lay.addView(listView);
+
+    }
+
+    private  void getMuseumListview(){
+        lay.removeAllViews();
+        ListView listView = new ListView(this);
+        listView.setDividerHeight(20);
+        listView.setBackgroundColor(Color.parseColor("#AAD793"));
+
+        ArrayAdapter<MuseumData> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, selectedCityData.getMuseumDataList());
+        listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               // selectedCityData = cityDataList.get(i);
+
+            }
+        });
+        lay.addView(listView);
+
+
 
     }
 

@@ -4,10 +4,10 @@
 {
   "list": [
     {
-      "sehirIsim": "Kocaeli'ndeki Müzeler",
+      "sehirIsim": "Kırşehir'deki Müzeler",
       "muzeList": [
         {
-          "muzeISim": "Kocaeli Arkeoloji ve Etnoğrafya Müzesi"
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
         },
         {
           "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "sehirIsim": "Kırşehir'deki Müzeler",
+      "sehirIsim": "Kocaeli'ndeki Müzeler",
       "muzeList": [
         {
           "muzeISim": "Kocaeli Arkeoloji ve Etnoğrafya Müzesi"
