@@ -26,6 +26,7 @@ public class GeneralActivity extends Activity {
     private static final String KEY_LIST = "list";
     private LinearLayout lay;
     private static CityData selectedCityData;
+    private static MuseumData selectedMuseumData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,11 +93,34 @@ public class GeneralActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                // selectedCityData = cityDataList.get(i);
+                selectedMuseumData = selectedCityData.getMuseumDataList().get(i);
+                getRelicListView();
 
             }
         });
         lay.addView(listView);
 
+
+    }
+
+    private void getRelicListView(){
+        lay.removeAllViews();
+        ListView listView = new ListView(this);
+        listView.setDividerHeight(20);
+        listView.setBackgroundColor(Color.parseColor("#AAD793"));
+
+        ArrayAdapter<Relic> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, selectedMuseumData.getRelicList());
+        listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // selectedCityData = cityDataList.get(i);
+                //selectedMuseumData = selectedCityData.getMuseumDataList().get(i);
+
+            }
+        });
+        lay.addView(listView);
 
 
     }
@@ -104,7 +128,7 @@ public class GeneralActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        fullScreencall();
+        //fullScreencall();
     }
 
     public void fullScreencall() {

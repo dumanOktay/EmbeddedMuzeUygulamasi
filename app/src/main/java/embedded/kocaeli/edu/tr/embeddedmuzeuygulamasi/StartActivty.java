@@ -76,6 +76,6 @@ public class StartActivty extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        fullScreencall();
+        //fullScreencall();
     }
 }

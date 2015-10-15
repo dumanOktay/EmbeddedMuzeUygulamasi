@@ -19,7 +19,10 @@
           "eserler": [
             {
               "eserISim": "",
-              "resim": "",
+              "resim": [
+                  "yysy",
+                "kkjk"
+              ],
               "aciklama": ""
             }
           ]
@@ -44,7 +47,7 @@
           "aciklamaUrl": "",
           "eserler": [
             {
-              "eserISim": "",
+              "eserISim": "hhh",
               "resim": "",
               "aciklama": ""
             }
