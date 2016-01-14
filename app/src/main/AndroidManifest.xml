@@ -37,6 +37,10 @@
         </activity>
         <activity android:name=".GeneralActivity" >
         </activity>
+        <activity android:name=".MuseumActivity" >
+        </activity>
+        <activity android:name=".RelicListActivity" >
+        </activity>
     </application>
 
 </manifest>

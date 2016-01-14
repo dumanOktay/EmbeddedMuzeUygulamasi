@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 public class MuseumGeneralActivity extends Activity {
 
+    String url = "http://img01.imgfotokritik.com/fk_new/big/2/7/3/273626/1459405-osman-hamdi-bey8217in-yalisi.jpg";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +27,8 @@ public class MuseumGeneralActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_museum_general);
 
-        //Layouta webview ekle(REsim için )
+        //Layouta webview ekle(Resim için )
         LinearLayout layout2 = (LinearLayout) findViewById(R.id.toplayout_2);
-
-
-        String url = "http://img01.imgfotokritik.com/fk_new/big/2/7/3/273626/1459405-osman-hamdi-bey8217in-yalisi.jpg";
         WebView webView = new WebView(this);
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         String imgSrcHtml = "<html><body style=\"margin: 0; padding: 0\">" +

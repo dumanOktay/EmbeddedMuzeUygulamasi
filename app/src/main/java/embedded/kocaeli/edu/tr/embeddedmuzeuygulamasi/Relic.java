@@ -11,8 +11,8 @@ import java.util.List;
  * Created by oktay on 15.10.2015.
  */
 public class Relic {
-    private static final String KEY_DES = "";
-    private static final String KEY_PIC_URL = "";
+    private static final String KEY_DES = "aciklama";
+    private static final String KEY_PIC_URL = "resim";
     private static final String KEY_NAME ="eserISim" ;
     private String name;
     private List<String> picUrl;
@@ -30,9 +30,20 @@ public class Relic {
 
     }
 
+
+
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return this.name;
+    }
+
+
+    public String getName() {
+        return name;
     }
 
     public List<String> getPicUrl() {

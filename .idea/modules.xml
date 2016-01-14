@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EmbeddedMuzeUygulamasi.iml" filepath="$PROJECT_DIR$/EmbeddedMuzeUygulamasi.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qrcodereaderview-1.0.0/qrcodereaderview-1.0.0.iml" filepath="$PROJECT_DIR$/qrcodereaderview-1.0.0/qrcodereaderview-1.0.0.iml" />
     </modules>
   </component>
 </project>

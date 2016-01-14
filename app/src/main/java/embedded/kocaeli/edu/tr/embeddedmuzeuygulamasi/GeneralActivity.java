@@ -1,6 +1,7 @@
 package embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,7 +34,7 @@ public class GeneralActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
 
@@ -65,14 +66,14 @@ public class GeneralActivity extends Activity {
         listView.setDividerHeight(20);
         listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-        ArrayAdapter<CityData> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cityDataList);
+        ArrayAdapter<CityData> arrayAdapter = new ArrayAdapter<>(this, R.layout.mytextview, cityDataList);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 selectedCityData = cityDataList.get(i);
-                getMuseumListview();
+                startActivity(new Intent(GeneralActivity.this,MuseumActivity.class));
 
             }
         });
@@ -80,28 +81,7 @@ public class GeneralActivity extends Activity {
 
     }
 
-    private  void getMuseumListview(){
-        lay.removeAllViews();
-        ListView listView = new ListView(this);
-        listView.setDividerHeight(20);
-        listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-        ArrayAdapter<MuseumData> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, selectedCityData.getMuseumDataList());
-        listView.setAdapter(arrayAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-               // selectedCityData = cityDataList.get(i);
-                selectedMuseumData = selectedCityData.getMuseumDataList().get(i);
-                getRelicListView();
-
-            }
-        });
-        lay.addView(listView);
-
-
-    }
 
     private void getRelicListView(){
         lay.removeAllViews();
@@ -143,5 +123,8 @@ public class GeneralActivity extends Activity {
         }
     }
 
+    public static CityData getSelectedCityData() {
+        return selectedCityData;
+    }
 }
 

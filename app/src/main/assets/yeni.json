@@ -3,8 +3,69 @@
 
 {
   "list": [
+
     {
-      "sehirIsim": "Kırşehir'deki Müzeler",
+      "sehirIsim": "Kastamonu'daki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+    {
+      "sehirIsim": "Kayseri'deki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+    {
+      "sehirIsim": "Kırıkkale'deki Müzeler",
       "muzeList": [
         {
           "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
@@ -34,6 +95,74 @@
     },
 
 
+    {
+      "sehirIsim": "Kırklareli'deki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+    {
+      "sehirIsim": "Kırşehir'deki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kocaeli Arkeoloji ve Etnografya Müzesi (Eski Gar Alanı Kompleksi)"
+        },
+        {
+          "muzeISim": "Saray Müze (Av Köşkü)"
+        },
+        {
+          "muzeISim": "Atatürk ve Redif Müzesi"
+        },
+        {
+          "muzeISim": "Seka Kağıt Müzesi"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
 
     {
       "sehirIsim": "Kocaeli'ndeki Müzeler",
@@ -42,16 +171,211 @@
           "muzeISim": "Kocaeli Arkeoloji ve Etnoğrafya Müzesi"
         },
         {
+          "muzeISim": "Kocaeli Etnografya Müzesi (Saatçi Ali Efendi Konağı)"
+        },
+        {
+          "muzeISim": "Saray Müze (Av Köşkü)"
+        },
+        {
+          "muzeISim": "Atatürk ve Redif Müzesi"
+        },
+        {
+          "muzeISim": "Seka Kağıt Müzesi"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "http://img01.imgfotokritik.com/fk_new/big/2/7/3/273626/1459405-osman-hamdi-bey8217in-yalisi.jpg",
+
+          "aciklamaUrl": "Büyük Türk Müzecisi ve Ressamı Osman Hamdi Bey (1842-1910) tarafından 1884 yılında Gebze Eskihisar'ın batı sahiline köşk resimhane, kayıkhane ve müştemilat şeklinde inşa edilmiştir",
+          "eserler": [
+            {
+              "eserISim": "Arzuhalci ",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg/250px-Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg"],
+              "aciklama": "Arzuhalci, Osman Hamdi Bey'in yağlıboya tablosudur."
+            }, {
+              "eserISim": "Kaplumbağa Terbiyecisi ",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Kaplumba%C4%9Fa_Terbiyecisi_vers2.jpg/250px-Kaplumba%C4%9Fa_Terbiyecisi_vers2.jpg"],
+              "aciklama": "Kaplumbağa Terbiyecisi, Osman Hamdi Bey'in 1906 ve 1907 yıllarında iki farklı versiyonunu çizdiği tablosudur."
+            }, {
+              "eserISim": "Silah Taciri (1908) ",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg/250px-Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg"],
+              "aciklama": "Arzuhalci, Osman Hamdi Bey'in yağlıboya tablosudur."
+            }, {
+              "eserISim": "Beyaz Entarili Kız (1908)",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg/250px-Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg"],
+              "aciklama": "Arzuhalci, Osman Hamdi Bey'in yağlıboya tablosudur."
+            }, {
+              "eserISim": "Mihrap  ",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Osman_hamdi_bey_mihrap.jpg/250px-Osman_hamdi_bey_mihrap.jpg"],
+              "aciklama": "Osman Hamdi'nin eserleri hakkında araştırma yapan sanat tarihçisi Mustafa Cezar, Hamdi Bey'in esere ne ad taktığı o sırada tespit edilmemiş olduğndan tabloya Mihrap ismini vermiştir.."
+            }, {
+              "eserISim": "Feraceli Kadınlar ",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg/250px-Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg"],
+              "aciklama": "Arzuhalci, Osman Hamdi Bey'in yağlıboya tablosudur."
+            }, {
+              "eserISim": "Pembe Başlıklı Kız  ",
+              "resim": [ "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg/250px-Osman_Hamdi_Bey_-_Arzuhalci_%2C_Public_Scribe_-_Google_Art_Project.jpg"],
+              "aciklama": "Arzuhalci, Osman Hamdi Bey'in yağlıboya tablosudur."
+            }
+
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+
+
+    {
+      "sehirIsim": "Konya'daki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
           "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
         },
         {
           "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
-          "resimUrl": "http://bilgibirikimi.net/wp-content/uploads/2012/06/osmanhamdibey.jpg",
+          "resimUrl": "",
           "aciklamaUrl": "",
           "eserler": [
             {
-              "eserISim": "hhh",
-              "resim": "",
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+
+
+    {
+      "sehirIsim": "Kütahya'daki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+
+
+    {
+      "sehirIsim": "Malatya'daki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+
+    {
+      "sehirIsim": "Manisa'daki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    },
+
+
+
+
+    {
+      "sehirIsim": "Mardin'deki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
               "aciklama": ""
             }
           ]
@@ -61,5 +385,81 @@
         }
       ]
     }
+
+
+  ,
+
+
+
+
+    {
+      "sehirIsim": "Mersin'deki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    }
+
+
+
+  ,
+
+
+
+
+    {
+      "sehirIsim": "Muğla'daki Müzeler",
+      "muzeList": [
+        {
+          "muzeISim": "Kırşehir Arkeoloji ve Etnoğrafya Müzesi"
+        },
+        {
+          "muzeISim": "Kasr-ı Hümayun Saray Müze-İzmit"
+        },
+        {
+          "muzeISim": "Osman Hamdi Bey Evi ve Müzesi-Eskihisar-Gebze",
+          "resimUrl": "",
+          "aciklamaUrl": "",
+          "eserler": [
+            {
+              "eserISim": "",
+              "resim": [
+                "yysy",
+                "kkjk"
+              ],
+              "aciklama": ""
+            }
+          ]
+        },
+        {
+          "muzeISim": "..."
+        }
+      ]
+    }
+
+
+
   ]
 }

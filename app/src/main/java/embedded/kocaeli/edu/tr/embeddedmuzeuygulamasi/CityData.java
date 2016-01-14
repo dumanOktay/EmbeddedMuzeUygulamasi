@@ -43,6 +43,6 @@ public class CityData {
 
     @Override
     public String toString() {
-        return ""+this.name;
+        return ""+this.name.toUpperCase();
     }
 }

@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 
 import org.json.JSONArray;
@@ -68,7 +69,6 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     // "points" : points where QR control points are placed
     @Override
     public void onQRCodeRead(String text, PointF[] points) {
-        myTextView.setText(text);
         id = text;
         new getData().execute();
         mydecoderview.getCameraManager().stopPreview();
