@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.Constant;
-import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.NetWork;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.R;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.YoutubeActivity;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.lit.CustomListViewAdapter;
@@ -48,7 +46,7 @@ public class YtvideoList extends Fragment {
     {
         @Override
         protected String doInBackground(String... params) {
-            return NetWork.getDataFrOmUrL("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLLhWQWQSq6_pmZ7OL2aBvFuyfLo0WoWYl&key=AIzaSyCl7IbsII_7XfPK-xos3ct3h2ix1Fbz-KM");
+            return "";
         }
 
         @Override

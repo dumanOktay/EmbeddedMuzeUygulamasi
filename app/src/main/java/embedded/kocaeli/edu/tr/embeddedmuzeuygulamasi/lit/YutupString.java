@@ -4,26 +4,57 @@ import android.os.AsyncTask;
 import android.widget.TextView;
 
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 
-import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.NetWork;
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.AppController;
+
 
 public class YutupString extends AsyncTask<Kvideo, Integer, String> {
 	WeakReference<TextView> tv;
 	private Kvideo kvideo;
+	String tempString;
 	public YutupString(TextView tv) {
 		super();
 		this.tv = new WeakReference<TextView>(tv);
+
+
 	}
 
 	@Override
 	protected String doInBackground(Kvideo... params) {
 		// TODO Auto-generated method stub
 		kvideo = params[0];
-		return NetWork.getDataFrOmUrL("https://www.youtube.com/oembed?url=http://www.youtube.com/watch?v="
-				+ params[0].getVideoid() + "&format=json");
+
+
+
+
+
+		StringRequest stringRequest = new StringRequest(Request.Method.GET, "",
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String response) {
+
+						tempString = response;
+					}
+				},
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+
+						tempString = null;
+					}
+				}
+		);
+
+		AppController.getRequestQueue().add(stringRequest);
+		return "";
 		
 	}
 

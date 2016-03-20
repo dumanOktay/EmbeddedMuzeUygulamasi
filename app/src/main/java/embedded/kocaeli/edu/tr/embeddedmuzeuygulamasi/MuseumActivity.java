@@ -33,20 +33,20 @@ public class MuseumActivity extends MuseumGeneralActivity {
         listView.setDividerHeight(20);
         listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-        ArrayAdapter<MuseumData> arrayAdapter = new ArrayAdapter<>(this,R.layout.mytextview,
-                GeneralActivity.getSelectedCityData().getMuseumDataList());
-        listView.setAdapter(arrayAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // selectedCityData = cityDataList.get(i);
-                selectedMuseumData =  GeneralActivity.getSelectedCityData().getMuseumDataList().get(i);
-                //getRelicListView();
-                museumPresentation();
-
-            }
-        });
+//        ArrayAdapter<MuseumData> arrayAdapter = new ArrayAdapter<>(this,R.layout.mytextview,
+//                GeneralActivity.getSelectedCityData().getMuseumDataList());
+//        listView.setAdapter(arrayAdapter);
+//
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                // selectedCityData = cityDataList.get(i);
+//                selectedMuseumData =  GeneralActivity.getSelectedCityData().getMuseumDataList().get(i);
+//                //getRelicListView();
+//                museumPresentation();
+//
+//            }
+//        });
         lay.addView(listView);
 
 

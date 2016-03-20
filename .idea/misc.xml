@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AndroidDexCompilerConfiguration">
+<<<<<<< Updated upstream
     <option name="MAX_HEAP_SIZE" value="500" />
+=======
+    <option name="MAX_HEAP_SIZE" value="750" />
+    <option name="FORCE_JUMBO" value="true" />
+>>>>>>> Stashed changes
   </component>
   <component name="EclipseCompilerSettings">
     <option name="PROCEED_ON_ERROR" value="false" />
@@ -65,6 +70,20 @@
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.7</last-edited>
+<<<<<<< Updated upstream
+=======
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+>>>>>>> Stashed changes
           <splitter-proportions>
             <option name="proportions">
               <list>

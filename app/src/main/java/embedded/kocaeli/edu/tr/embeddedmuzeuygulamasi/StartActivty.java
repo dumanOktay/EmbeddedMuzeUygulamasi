@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.view.WindowManager;
 
 public class StartActivty extends Activity {
 
+    private static final String TAG = "StartActivty";
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class StartActivty extends Activity {
     }
 
     public void clickStart(View v) {
+        Log.d(TAG, "clickStart() called with: " + "v = [" + v.getId() + "]");
         switch (v.getId()) {
             case R.id.txt_genel:
                 startActivity(new Intent(this, GeneralActivity.class));

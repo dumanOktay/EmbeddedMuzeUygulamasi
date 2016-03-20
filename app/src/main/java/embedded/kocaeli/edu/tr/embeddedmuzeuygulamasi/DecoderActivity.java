@@ -104,8 +104,9 @@ public class DecoderActivity extends Activity implements QRCodeReaderView.OnQRCo
     class getData extends AsyncTask<Void, Integer, JSONObject> {
         @Override
         protected JSONObject doInBackground(Void... voids) {
-            String s = NetWork.getDataFrOmUrL(Constant.getURL() + "presentation_info?presentation_id=" + id);
+//            String s = NetWork.getDataFrOmUrL(Constant.getURL() + "presentation_info?presentation_id=" + id);
 
+            String s="";
             try {
                 JSONObject o = new JSONObject(s);
                 return o;

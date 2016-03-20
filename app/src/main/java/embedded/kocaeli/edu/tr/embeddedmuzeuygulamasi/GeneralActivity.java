@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.CharacterPickerDialog;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,6 +16,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,11 +30,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Museum;
+
 public class GeneralActivity extends Activity {
+
+    private static final String TAG = "GeneralActivity";
 
     private static final String KEY_LIST = "list";
     private LinearLayout lay;
-    private static CityData selectedCityData;
+    private static Museum selectedMuseum;
     private static MuseumData selectedMuseumData;
 
     @Override
@@ -40,25 +52,49 @@ public class GeneralActivity extends Activity {
 
         lay = (LinearLayout) findViewById(R.id.main);
         Constant.setActivity(this);
-        String js= FileUtils.readFile("yeni.json");
 
-        try {
-            JSONObject object = new JSONObject(js);
 
-            parsJson(object);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://all-museums.tanerguven.org/museum_list",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                       try{
+                           JSONArray array = new JSONArray(response);
+
+                          JSONObject object = new JSONObject();
+                           object.put("list",array);
+                           parsJson(object);
+
+                       }catch (JSONException e){
+                           e.printStackTrace();
+                       }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+
+        );
+
+        AppController.addRequest(stringRequest);
+
 
     }
-    public void parsJson(JSONObject object) throws JSONException{
 
-        final List<CityData> cityDataList = new ArrayList<>();
+    public void parsJson(JSONObject object) throws JSONException {
+
+        final List<Museum> cityDataList = new ArrayList<>();
         JSONArray array = object.getJSONArray(KEY_LIST);
 
-        for (int i=0;i<array.length();i++){
+        for (int i = 0; i < array.length(); i++) {
             JSONObject o = array.getJSONObject(i);
-            cityDataList.add(new CityData(o));
+
+            Log.d(TAG, "parsJson: " + o);
+            cityDataList.add(new Museum(o));
 
         }
 
@@ -66,14 +102,14 @@ public class GeneralActivity extends Activity {
         listView.setDividerHeight(20);
         listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-        ArrayAdapter<CityData> arrayAdapter = new ArrayAdapter<>(this, R.layout.mytextview, cityDataList);
+        ArrayAdapter<Museum> arrayAdapter = new ArrayAdapter<>(this, R.layout.mytextview, cityDataList);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedCityData = cityDataList.get(i);
-                startActivity(new Intent(GeneralActivity.this,MuseumActivity.class));
+                selectedMuseum = cityDataList.get(i);
+                startActivity(new Intent(GeneralActivity.this, MuseumActivity.class));
 
             }
         });
@@ -82,8 +118,7 @@ public class GeneralActivity extends Activity {
     }
 
 
-
-    private void getRelicListView(){
+    private void getRelicListView() {
         lay.removeAllViews();
         ListView listView = new ListView(this);
         listView.setDividerHeight(20);
@@ -123,8 +158,8 @@ public class GeneralActivity extends Activity {
         }
     }
 
-    public static CityData getSelectedCityData() {
-        return selectedCityData;
+    public static Museum getSelectedMuseum() {
+        return selectedMuseum;
     }
 }
 
