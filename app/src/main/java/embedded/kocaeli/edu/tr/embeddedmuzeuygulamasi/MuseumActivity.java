@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,41 +15,83 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Museum;
 
 public class MuseumActivity extends MuseumGeneralActivity {
 
+    private static final String TAG = "MuseumActivity";
     protected LinearLayout lay;
-    protected  static MuseumData selectedMuseumData;
+    protected static MuseumData selectedMuseumData;
+    public static final String MUSEUM_METHOD_URL = "/museum/museum_information";
+
+    private TextView headerTv;
+
+    private Museum currentMuseum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general);
-        lay = (LinearLayout) findViewById(R.id.main);
+        setContentView(R.layout.activity_museum);
         getMuseumListview();
+
+        headerTv =(TextView)findViewById(R.id.header_tv);
     }
 
-    protected   void getMuseumListview(){
-        lay.removeAllViews();
+    public void click(View v){
+        switch (v.getId()){
+            case R.id.ekle_btn:
+
+
+                break;
+        }
+    }
+
+    protected void getMuseumListview() {
         ListView listView = new ListView(this);
         listView.setDividerHeight(20);
         listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-//        ArrayAdapter<MuseumData> arrayAdapter = new ArrayAdapter<>(this,R.layout.mytextview,
-//                GeneralActivity.getSelectedCityData().getMuseumDataList());
-//        listView.setAdapter(arrayAdapter);
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                // selectedCityData = cityDataList.get(i);
-//                selectedMuseumData =  GeneralActivity.getSelectedCityData().getMuseumDataList().get(i);
-//                //getRelicListView();
-//                museumPresentation();
-//
-//            }
-//        });
-        lay.addView(listView);
 
+        Museum selectedMuseum = GeneralActivity.getSelectedMuseum();
+
+
+        //TO DO     MÜZE İNFO
+        String url = Constant.getPreHttp() + selectedMuseum.getId() +"."+ Constant.getBaseUrl() + MUSEUM_METHOD_URL;
+
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+                            currentMuseum = new Museum(response);
+                            headerTv.setText(""+currentMuseum.getName());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        Log.d(TAG, "getMuseumListview: url   "+ url);
+        AppController.getRequestQueue().add(request);
 
     }
 
@@ -58,7 +101,11 @@ public class MuseumActivity extends MuseumGeneralActivity {
 
     @Override
     public void eserler(View v) {
-      startActivity(new Intent(this,RelicListActivity.class));
+
+       if (currentMuseum != null){
+           RelicListActivity.setParentMuseum(currentMuseum);
+           startActivity(new Intent(this, RelicListActivity.class));
+       }
     }
 
     private void museumPresentation() {
@@ -76,7 +123,6 @@ public class MuseumActivity extends MuseumGeneralActivity {
 
 
         LinearLayout layout3 = (LinearLayout) findViewById(R.id.toplayout_3);
-
 
 
         WebView webView2 = new WebView(this);

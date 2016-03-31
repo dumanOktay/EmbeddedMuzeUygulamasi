@@ -18,6 +18,8 @@ public class Constant {
 	private static Activity activity;
 	private static String ANDROID_ID;
 	private static Kvideo currentKvideo;
+	private static final String BASE_URL = "tanerguven.org/";
+	private static final String PRE_HTTP = "http://";
 	private static final String URL = "http://lab.tanerguven.org/museum-project/visitor/";
 	public Constant(Context context) {
 		// TODO Auto-generated constructor stub
@@ -32,6 +34,13 @@ public class Constant {
 		ANDROID_ID = Secure.getString(getActivity().getContentResolver(), Secure.ANDROID_ID);
 	}
 
+	public static String getBaseUrl() {
+		return BASE_URL;
+	}
+
+	public static String getPreHttp() {
+		return PRE_HTTP;
+	}
 
 	public static String getURL() {
 		return URL;

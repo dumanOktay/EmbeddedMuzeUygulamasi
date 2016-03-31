@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.method.CharacterPickerDialog;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -14,13 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
@@ -59,16 +55,16 @@ public class GeneralActivity extends Activity {
                     @Override
                     public void onResponse(String response) {
 
-                       try{
-                           JSONArray array = new JSONArray(response);
+                        try {
+                            JSONArray array = new JSONArray(response);
 
-                          JSONObject object = new JSONObject();
-                           object.put("list",array);
-                           parsJson(object);
+                            JSONObject object = new JSONObject();
+                            object.put("list", array);
+                            parsJson(object);
 
-                       }catch (JSONException e){
-                           e.printStackTrace();
-                       }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 },
                 new Response.ErrorListener() {

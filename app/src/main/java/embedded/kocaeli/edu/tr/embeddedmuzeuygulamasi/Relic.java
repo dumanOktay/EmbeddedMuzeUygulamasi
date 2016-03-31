@@ -11,24 +11,29 @@ import java.util.List;
  * Created by oktay on 15.10.2015.
  */
 public class Relic {
+    private static final String KEY_ID = "object_id";
     private static final String KEY_DES = "aciklama";
     private static final String KEY_PIC_URL = "resim";
-    private static final String KEY_NAME ="eserISim" ;
+    private static final String KEY_NAME ="object_name" ;
     private String name;
+    private String id;
     private List<String> picUrl;
     private String description;
 
 
     public Relic(JSONObject object) throws JSONException {
         this.name = object.getString(KEY_NAME);
-        this.picUrl =new ArrayList<>();
+
+        this.id = object.getString(KEY_ID);
+       /* this.picUrl =new ArrayList<>();
         JSONArray array = object.getJSONArray(KEY_PIC_URL);
         for (int i = 0; i <array.length() ; i++) {
             picUrl.add(array.getString(i));
         }
-        this.description = object.getString(KEY_DES);
+        this.description = object.getString(KEY_DES);*/
 
     }
+
 
 
 

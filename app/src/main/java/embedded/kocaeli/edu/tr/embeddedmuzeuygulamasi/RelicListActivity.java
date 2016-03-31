@@ -2,6 +2,7 @@ package embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -11,10 +12,32 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Museum;
+
 public class RelicListActivity extends MuseumGeneralActivity {
 
+    private static final String TAG = "RelicListActivity";
+    
+    private static Museum parentMuseum;
+
+    public static final String RELIC_METHOD_URL = "/museum/object_list";
     protected Relic selectedRelic;
     protected LinearLayout lay;
+
+    private List<Relic> relicList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,24 +48,66 @@ public class RelicListActivity extends MuseumGeneralActivity {
 
     protected void getRelicListview() {
 
-        lay.removeAllViews();
-        ListView listView = new ListView(this);
-        listView.setDividerHeight(20);
-        listView.setBackgroundColor(Color.parseColor("#AAD793"));
+        //TO DO     MÜZE İNFO
+        String url = Constant.getPreHttp() + parentMuseum.getId() +"."+ Constant.getBaseUrl() + RELIC_METHOD_URL;
 
-        ArrayAdapter<Relic> arrayAdapter = new ArrayAdapter<>(this,R.layout.mytextview,
-                MuseumActivity.getSelectedMuseumData().getRelicList());
-        listView.setAdapter(arrayAdapter);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // selectedCityData = cityDataList.get(i);
-                selectedRelic =  MuseumActivity.getSelectedMuseumData().getRelicList().get(i);
-                relicPresentation();
-            }
-        });
-        lay.addView(listView);
+                        try {
+
+                            Log.d(TAG, "onResponse() called with: " + "response = [" + response + "]");
+                            JSONArray array = new JSONArray(response);
+
+
+                            Log.d(TAG, "onResponse: s  "+array.length());
+
+                            relicList.clear();
+                            for (int i = 0; i <array.length() ; i++) {
+                                relicList.add(new Relic(array.getJSONObject(i)));
+                            }
+
+
+
+                            lay.removeAllViews();
+                            ListView listView = new ListView(RelicListActivity.this);
+                            listView.setDividerHeight(20);
+                            listView.setBackgroundColor(Color.parseColor("#AAD793"));
+
+                            ArrayAdapter<Relic> arrayAdapter = new ArrayAdapter<Relic>(RelicListActivity.this,R.layout.mytextview,
+                                    relicList);
+                            listView.setAdapter(arrayAdapter);
+
+                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                    // selectedCityData = cityDataList.get(i);
+                                    selectedRelic =  MuseumActivity.getSelectedMuseumData().getRelicList().get(i);
+                                    relicPresentation();
+                                }
+                            });
+                            lay.addView(listView);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+
+        );
+
+        AppController.addRequest(stringRequest);
+
+
+
     }
 
 
@@ -82,4 +147,11 @@ public class RelicListActivity extends MuseumGeneralActivity {
         layout4.removeView(qrButton);
     }
 
+    public static Museum getParentMuseum() {
+        return parentMuseum;
+    }
+
+    public static void setParentMuseum(Museum parentMuseum) {
+        RelicListActivity.parentMuseum = parentMuseum;
+    }
 }

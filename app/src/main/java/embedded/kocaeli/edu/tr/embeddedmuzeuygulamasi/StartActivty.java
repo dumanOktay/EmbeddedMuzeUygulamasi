@@ -42,7 +42,7 @@ public class StartActivty extends Activity {
     public void clickStart(View v) {
         Log.d(TAG, "clickStart() called with: " + "v = [" + v.getId() + "]");
         switch (v.getId()) {
-            case R.id.txt_genel:
+            case R.id.txt_genel:  //tüm müzeler giriş
                 startActivity(new Intent(this, GeneralActivity.class));
                 break;
             case R.id.txt_gecmis:
