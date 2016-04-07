@@ -117,10 +117,10 @@ public class RelicListActivity extends MuseumGeneralActivity {
 
     private void relicPresentation() {
 
-        setContentView(R.layout.activity_museum_general);
+        setContentView(R.layout.relic_detail_activity);
         final LinearLayout layout2 = (LinearLayout) findViewById(R.id.toplayout_2);
         final LinearLayout layout3 = (LinearLayout) findViewById(R.id.toplayout_3);
-        LinearLayout layout4 = (LinearLayout) findViewById(R.id.toplayout_4);
+        final LinearLayout layout4 = (LinearLayout) findViewById(R.id.toplayout_4);
         Button qrButton = (Button) findViewById(R.id.btn_qrkod);
         Button eserButton = (Button) findViewById(R.id.btn_eserler);
         TextView title = (TextView) findViewById(R.id.title_view);
@@ -146,6 +146,11 @@ public class RelicListActivity extends MuseumGeneralActivity {
 
 
                             layout3.addView(new CustomWeb(0,info.getInformation_html(),Config.getContext()).getWebView());
+
+                            for (int i = 0; i <info.getUrls().size() ; i++) {
+                                layout4.addView(info.getUrls().get(i));
+                            }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
