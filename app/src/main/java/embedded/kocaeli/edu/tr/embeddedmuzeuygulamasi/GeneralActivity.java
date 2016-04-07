@@ -98,7 +98,6 @@ public class GeneralActivity extends Activity {
 
         ListView listView = new ListView(this);
         listView.setDividerHeight(20);
-        listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
         List<ListItem> listItems = new ArrayList<>();
 
