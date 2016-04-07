@@ -6,9 +6,8 @@ import org.json.JSONObject;
 /**
  * Created by oktay on 20.03.2016.
  */
-public class Museum {
+public class Museum extends ListItem{
     private String id;
-    private String name;
 
     private static final String KEY_ID = "museum_id";
     private static final String KEY_NAME = "museum_name";
@@ -16,6 +15,7 @@ public class Museum {
 
 
     public Museum(JSONObject  o) throws JSONException {
+        super(o.getString(KEY_NAME));
         this.id = o.getString(KEY_ID);
         this.name= o.getString(KEY_NAME);
     }

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="#96B5E6"
     android:gravity="center"
+    android:orientation="vertical"
     android:id="@+id/main"
     tools:context="embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.GeneralActivity">
 

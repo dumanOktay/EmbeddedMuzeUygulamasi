@@ -26,6 +26,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.adapters.MuseumAdapter;
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.ListItem;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Museum;
 
 public class GeneralActivity extends Activity {
@@ -98,7 +100,15 @@ public class GeneralActivity extends Activity {
         listView.setDividerHeight(20);
         listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-        ArrayAdapter<Museum> arrayAdapter = new ArrayAdapter<>(this, R.layout.mytextview, cityDataList);
+        List<ListItem> listItems = new ArrayList<>();
+
+        for (int i = 0; i <cityDataList.size() ; i++) {
+
+            listItems.add(cityDataList.get(i));
+
+        }
+
+        MuseumAdapter arrayAdapter = new MuseumAdapter(GeneralActivity.this,listItems);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
