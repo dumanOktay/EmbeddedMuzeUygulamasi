@@ -34,8 +34,9 @@ public class Relic {
 
     }
 
-
-
+    public String getId() {
+        return id;
+    }
 
     public String getDescription() {
         return description;

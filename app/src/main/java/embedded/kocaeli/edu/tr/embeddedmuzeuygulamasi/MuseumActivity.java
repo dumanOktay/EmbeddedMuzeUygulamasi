@@ -25,10 +25,13 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Config;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Museum;
 
 public class MuseumActivity extends MuseumGeneralActivity {
 
+
+    Museum selectedMuseum = GeneralActivity.getSelectedMuseum();
     private static final String TAG = "MuseumActivity";
     protected LinearLayout lay;
     protected static MuseumData selectedMuseumData;
@@ -45,12 +48,15 @@ public class MuseumActivity extends MuseumGeneralActivity {
         getMuseumListview();
 
         headerTv =(TextView)findViewById(R.id.header_tv);
+
+        Log.d(TAG, "onCreate: kk");
     }
 
     public void click(View v){
         switch (v.getId()){
             case R.id.ekle_btn:
 
+                relicList();
 
                 break;
         }
@@ -62,12 +68,10 @@ public class MuseumActivity extends MuseumGeneralActivity {
         listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
 
-        Museum selectedMuseum = GeneralActivity.getSelectedMuseum();
-
-
         //TO DO     MÜZE İNFO
         String url = Constant.getPreHttp() + selectedMuseum.getId() +"."+ Constant.getBaseUrl() + MUSEUM_METHOD_URL;
 
+        Log.d(TAG, "getMuseumListview: url  "+url);
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -76,6 +80,7 @@ public class MuseumActivity extends MuseumGeneralActivity {
 
                         try {
                             currentMuseum = new Museum(response);
+                            Config.setMuseumId(currentMuseum.getId());
                             headerTv.setText(""+currentMuseum.getName());
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -108,37 +113,38 @@ public class MuseumActivity extends MuseumGeneralActivity {
        }
     }
 
-    private void museumPresentation() {
-
-        setContentView(R.layout.activity_museum_general);
-        String url = selectedMuseumData.getPictureURL();
-        //Layouta webview ekle(Resim için )
-        LinearLayout layout2 = (LinearLayout) findViewById(R.id.toplayout_2);
-        WebView webView = new WebView(this);
-        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        String imgSrcHtml = "<html><body style=\"margin: 0; padding: 0\">" +
-                "<img src='" + url + "'   width=\"100%\" /></html>";
-        webView.loadDataWithBaseURL("", imgSrcHtml, "text/html", "utf-8", "");
-        layout2.addView(webView);
 
 
-        LinearLayout layout3 = (LinearLayout) findViewById(R.id.toplayout_3);
+    public void relicList(){
 
+        //TO DO     MÜZE İNFO
+        String url = Constant.getPreHttp() + selectedMuseum.getId() +"."+ Constant.getBaseUrl() + MUSEUM_METHOD_URL;
 
-        WebView webView2 = new WebView(this);
-        webView2.getSettings().setDefaultTextEncodingName("utf-8");
-        imgSrcHtml = "<html> " +
-                "<p><font face=\"Courier New\" color=\"#282828\"> '"
-                + selectedMuseumData.getDescription() + "'  " +
-                " </font></p>" +
-                "</html>";
-        webView2.loadDataWithBaseURL("", imgSrcHtml, "text/html", "utf-8", "");
-        layout3.addView(webView2);
+        Log.d(TAG, "getMuseumListview: url  "+url);
 
-        LinearLayout layout4 = (LinearLayout) findViewById(R.id.toplayout_4);
-        Button qrButton = (Button) findViewById(R.id.btn_qrkod);
-        layout4.removeView(qrButton);
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
 
+                        try {
+                            currentMuseum = new Museum(response);
+                            headerTv.setText(""+currentMuseum.getName());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        Log.d(TAG, "getMuseumListview: url   "+ url);
+        AppController.getRequestQueue().add(request);
     }
 
 }

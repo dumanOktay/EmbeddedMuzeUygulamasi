@@ -25,12 +25,15 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Config;
 import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.Museum;
+import embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.modals.ObjectInfo;
 
 public class RelicListActivity extends MuseumGeneralActivity {
 
     private static final String TAG = "RelicListActivity";
-    
+    private static final String OBJECT_INFO_URL = "museum/object_info?object_id=";
+
     private static Museum parentMuseum;
 
     public static final String RELIC_METHOD_URL = "/museum/object_list";
@@ -38,18 +41,21 @@ public class RelicListActivity extends MuseumGeneralActivity {
     protected LinearLayout lay;
 
     private List<Relic> relicList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
         lay = (LinearLayout) findViewById(R.id.main);
         getRelicListview();
+
+        Log.d(TAG, "onCreate: lödlld");
     }
 
     protected void getRelicListview() {
 
         //TO DO     MÜZE İNFO
-        String url = Constant.getPreHttp() + parentMuseum.getId() +"."+ Constant.getBaseUrl() + RELIC_METHOD_URL;
+        String url = Constant.getPreHttp() + parentMuseum.getId() + "." + Constant.getBaseUrl() + RELIC_METHOD_URL;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -62,13 +68,12 @@ public class RelicListActivity extends MuseumGeneralActivity {
                             JSONArray array = new JSONArray(response);
 
 
-                            Log.d(TAG, "onResponse: s  "+array.length());
+                            Log.d(TAG, "onResponse: s  " + array.length());
 
                             relicList.clear();
-                            for (int i = 0; i <array.length() ; i++) {
+                            for (int i = 0; i < array.length(); i++) {
                                 relicList.add(new Relic(array.getJSONObject(i)));
                             }
-
 
 
                             lay.removeAllViews();
@@ -76,7 +81,7 @@ public class RelicListActivity extends MuseumGeneralActivity {
                             listView.setDividerHeight(20);
                             listView.setBackgroundColor(Color.parseColor("#AAD793"));
 
-                            ArrayAdapter<Relic> arrayAdapter = new ArrayAdapter<Relic>(RelicListActivity.this,R.layout.mytextview,
+                            ArrayAdapter<Relic> arrayAdapter = new ArrayAdapter<Relic>(RelicListActivity.this, R.layout.mytextview,
                                     relicList);
                             listView.setAdapter(arrayAdapter);
 
@@ -84,7 +89,7 @@ public class RelicListActivity extends MuseumGeneralActivity {
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                     // selectedCityData = cityDataList.get(i);
-                                    selectedRelic =  MuseumActivity.getSelectedMuseumData().getRelicList().get(i);
+                                    selectedRelic = relicList.get(i);
                                     relicPresentation();
                                 }
                             });
@@ -107,41 +112,56 @@ public class RelicListActivity extends MuseumGeneralActivity {
         AppController.addRequest(stringRequest);
 
 
-
     }
 
 
     private void relicPresentation() {
 
         setContentView(R.layout.activity_museum_general);
-        LinearLayout layout2 = (LinearLayout) findViewById(R.id.toplayout_2);
-        LinearLayout layout3 = (LinearLayout) findViewById(R.id.toplayout_3);
+        final LinearLayout layout2 = (LinearLayout) findViewById(R.id.toplayout_2);
+        final LinearLayout layout3 = (LinearLayout) findViewById(R.id.toplayout_3);
         LinearLayout layout4 = (LinearLayout) findViewById(R.id.toplayout_4);
         Button qrButton = (Button) findViewById(R.id.btn_qrkod);
-        Button eserButton =(Button)findViewById(R.id.btn_eserler);
-        TextView title =(TextView) findViewById(R.id.title_view);
+        Button eserButton = (Button) findViewById(R.id.btn_eserler);
+        TextView title = (TextView) findViewById(R.id.title_view);
 
-        title.setText(""+selectedRelic.getName());
-        String url = selectedRelic.getPicUrl().get(0);
+        title.setText("" + selectedRelic.getName());
+//        String url = selectedRelic.getPicUrl().get(0);
         //Layouta webview ekle(Resim için )
 
 
-        WebView webView = new WebView(this);
-        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        String imgSrcHtml = "<html><body style=\"margin: 0; padding: 0\">" +
-                "<img src='" + url + "'   width=\"100%\" /></html>";
-        webView.loadDataWithBaseURL("", imgSrcHtml, "text/html", "utf-8", "");
-        layout2.addView(webView);
+        String url2 = Constant.getPreHttp() + getParentMuseum().getId() + "." + Constant.getBaseUrl() + OBJECT_INFO_URL + selectedRelic.getId();
 
-        WebView webView2 = new WebView(this);
-        webView2.getSettings().setDefaultTextEncodingName("utf-8");
-        imgSrcHtml = "<html> " +
-                "<p><font face=\"Courier New\" color=\"#282828\"> '"
-                + selectedRelic.getDescription() + "'  " +
-                " </font></p>" +
-                "</html>";
-        webView2.loadDataWithBaseURL("", imgSrcHtml, "text/html", "utf-8", "");
-        layout3.addView(webView2);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url2, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+                            Config.setContext(RelicListActivity.this);
+                            ObjectInfo info = new ObjectInfo(response);
+                            String url = info.getPictures().get(0);
+                            layout2.addView(new CustomWeb(url,Config.getContext()).getWebView());
+
+
+                            layout3.addView(new CustomWeb(0,info.getInformation_html(),Config.getContext()).getWebView());
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+
+        Log.d(TAG, "getMuseumListview: url   " + url);
+        AppController.getRequestQueue().add(request);
+
 
         eserButton.setText("Daha Fazla Bilgi");
         layout4.removeView(qrButton);
