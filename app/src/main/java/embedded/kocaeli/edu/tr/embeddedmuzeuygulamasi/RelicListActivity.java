@@ -142,10 +142,7 @@ public class RelicListActivity extends MuseumGeneralActivity {
                             ObjectInfo info = new ObjectInfo(response);
                             String url = info.getPictures().get(0);
                             layout2.addView(new CustomWeb(url, Config.getContext()).getWebView());
-
-
                             layout3.addView(new CustomWeb(0, info.getInformation_html(), Config.getContext()).getWebView());
-
                             for (int i = 0; i < info.getUrls().size(); i++) {
                                 layout4.addView(info.getUrls().get(i));
                             }

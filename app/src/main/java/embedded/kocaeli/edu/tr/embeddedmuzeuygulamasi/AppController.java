@@ -13,14 +13,12 @@ public class AppController extends Application {
 
     private static RequestQueue requestQueue;
 
-
     @Override
     public void onCreate() {
         super.onCreate();
         if (requestQueue == null){
             requestQueue = Volley.newRequestQueue(this);
         }
-
     }
 
 
