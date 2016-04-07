@@ -2,6 +2,7 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:gravity="center"
+    android:background="@drawable/tv_bg"
     android:textSize="25sp"
     android:padding="5dp"
     android:text="kkdkd"

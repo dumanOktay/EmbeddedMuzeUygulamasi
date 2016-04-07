@@ -121,14 +121,13 @@ public class RelicListActivity extends MuseumGeneralActivity {
         final LinearLayout layout2 = (LinearLayout) findViewById(R.id.toplayout_2);
         final LinearLayout layout3 = (LinearLayout) findViewById(R.id.toplayout_3);
         final LinearLayout layout4 = (LinearLayout) findViewById(R.id.toplayout_4);
-        Button qrButton = (Button) findViewById(R.id.btn_qrkod);
-        Button eserButton = (Button) findViewById(R.id.btn_eserler);
         TextView title = (TextView) findViewById(R.id.title_view);
 
         title.setText("" + selectedRelic.getName());
 //        String url = selectedRelic.getPicUrl().get(0);
         //Layouta webview ekle(Resim için )
 
+        layout4.removeAllViews();
 
         String url2 = Constant.getPreHttp() + getParentMuseum().getId() + "." + Constant.getBaseUrl() + OBJECT_INFO_URL + selectedRelic.getId();
 
@@ -142,12 +141,12 @@ public class RelicListActivity extends MuseumGeneralActivity {
                             Config.setContext(RelicListActivity.this);
                             ObjectInfo info = new ObjectInfo(response);
                             String url = info.getPictures().get(0);
-                            layout2.addView(new CustomWeb(url,Config.getContext()).getWebView());
+                            layout2.addView(new CustomWeb(url, Config.getContext()).getWebView());
 
 
-                            layout3.addView(new CustomWeb(0,info.getInformation_html(),Config.getContext()).getWebView());
+                            layout3.addView(new CustomWeb(0, info.getInformation_html(), Config.getContext()).getWebView());
 
-                            for (int i = 0; i <info.getUrls().size() ; i++) {
+                            for (int i = 0; i < info.getUrls().size(); i++) {
                                 layout4.addView(info.getUrls().get(i));
                             }
 
@@ -168,8 +167,6 @@ public class RelicListActivity extends MuseumGeneralActivity {
         AppController.getRequestQueue().add(request);
 
 
-        eserButton.setText("Daha Fazla Bilgi");
-        layout4.removeView(qrButton);
     }
 
     public static Museum getParentMuseum() {
