@@ -62,7 +62,7 @@ public class MuseumAdapter extends BaseAdapter {
 
 
         ListItem listItem = (ListItem) getItem(position);
-        myHolder.textView.setText("" + listItem.getName());
+        myHolder.textView.setText("" + listItem.getName().toUpperCase());
         Log.d(TAG, "getView: "+ listItem.getName());
         return convertView;
     }

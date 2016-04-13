@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#96B5E6"
     android:gravity="center"
     android:orientation="vertical"
-    android:id="@+id/main"
     tools:context="embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.GeneralActivity">
 
-</LinearLayout>
+    <include layout="@layout/transparent_bg"></include>
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+    </LinearLayout>
+
+</FrameLayout>

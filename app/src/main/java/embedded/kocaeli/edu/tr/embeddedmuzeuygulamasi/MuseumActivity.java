@@ -1,19 +1,10 @@
 package embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,7 +24,6 @@ public class MuseumActivity extends MuseumGeneralActivity {
 
     Museum selectedMuseum = GeneralActivity.getSelectedMuseum();
     private static final String TAG = "MuseumActivity";
-    protected LinearLayout lay;
     protected static MuseumData selectedMuseumData;
     public static final String MUSEUM_METHOD_URL = "/museum/museum_information";
 

@@ -1,85 +1,105 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/m1"
     tools:context="embedded.kocaeli.edu.tr.embeddedmuzeuygulamasi.StartActivty">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:background="#8890caf9"
-        android:layout_weight="1">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/genel"
-            android:layout_margin="15dp"
-            android:gravity="center"
-            android:onClick="clickStart"
-            android:background="#009688"
-            android:textStyle="bold"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:id="@+id/txt_genel"
-            android:layout_gravity="center_vertical" />
-    </LinearLayout>
-
+    <include layout="@layout/transparent_bg"></include>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:background="#8890caf9"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
-        <TextView
+        <View
+            android:layout_weight="1"
             android:layout_width="match_parent"
+            android:layout_height="0dp"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:gravity="center"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/his"
-            android:background="#009688"
-            android:textStyle="bold"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:id="@+id/txt_gecmis"
-            android:layout_gravity="center_vertical" />
+
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/genel"
+                android:layout_margin="15dp"
+                android:gravity="center"
+                android:onClick="clickStart"
+                android:background="#d6ffffff"
+                android:textStyle="bold"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:id="@+id/txt_genel"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/his"
+                android:background="#d6ffffff"
+                android:textStyle="bold"
+                android:paddingTop="5dp"
+                android:textColor="@android:color/black"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:id="@+id/txt_gecmis"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_margin="15dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/simdiki"
+                android:paddingTop="5dp"
+                android:background="#d6ffffff"
+                android:paddingBottom="5dp"
+                android:onClick="clickStart"
+                android:textColor="@android:color/black"
+                android:id="@+id/txt_gezilen"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"></View>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:background="#8890caf9"
-        android:layout_weight="1">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_margin="15dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/simdiki"
-            android:background="#009688"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:onClick="clickStart"
-            android:id="@+id/txt_gezilen"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical" />
-    </LinearLayout>
-
-
-</LinearLayout>
+</FrameLayout>
